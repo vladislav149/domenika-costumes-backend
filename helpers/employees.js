@@ -20,10 +20,15 @@ const deleteEmployee = id => {
   return Employees.findByIdAndDelete(id)
 }
 
+const findEmployee = id => {
+  return Employees.findById(id)
+}
+
 export {
   getAllEmployees,
   getEmployee,
   createEmployee,
   updateEmployee,
-  deleteEmployee
+  deleteEmployee,
+  findEmployee
 }

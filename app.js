@@ -4,11 +4,8 @@ import root from './routes/index.js'
 import placesRoutes from './routes/places.js'
 import employeesRoutes from './routes/employees.js'
 import costumesRoutes from './routes/costumes.js'
-// import categoriesRoutes from './routes/categories.js'
-// import commentsRoutes from './routes/comments.js'
-// import directorsRoutes from './routes/directors.js'
-// import usersRoutes from './routes/users.js'
-// import passport from './middleware/passport.js'
+import requisitesRoutes from './routes/requisites.js'
+import fileUpload from 'express-fileupload'
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -22,14 +19,11 @@ app.use(
   express.json()
 )
 
+app.use(fileUpload({safeFileNames: true}))
 app.use('/places', placesRoutes)
 app.use('/employees', employeesRoutes)
 app.use('/costumes', costumesRoutes)
-// app.use('/movies', passport(), moviesRoutes)
-// app.use('/categories', passport(), categoriesRoutes)
-// app.use('/comments', passport(), commentsRoutes)
-// app.use('/directors', passport(), directorsRoutes)
-// app.use('/users', usersRoutes)
+app.use('/requisites', requisitesRoutes)
 app.use('/', root)
 app.use((err, req, res, next) => {
   console.error(err.stack)

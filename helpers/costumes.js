@@ -4,6 +4,10 @@ const getAllCostumes = () => {
   return Costumes.find().lean()
 }
 
+const getCostumesByPlace = idPlace => {
+  return Costumes.find().lean()
+}
+
 const getCostume = id => {
   return Costumes.findById(id).lean()
 }

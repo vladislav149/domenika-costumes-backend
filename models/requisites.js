@@ -1,6 +1,6 @@
 import db from '../ext/db.js'
 
-const CostumesSchema = new db.Schema({
+const RequisitesSchema = new db.Schema({
   title: String,
   description: String,
   img: Buffer,
@@ -10,6 +10,6 @@ const CostumesSchema = new db.Schema({
   place: {type: 'ObjectId', ref: 'Place'}
 })
 
-const costumesModel = db.model('Costume', CostumesSchema)
+const requisitesModel = db.model('Requisite', RequisitesSchema)
 
-export default costumesModel
+export default requisitesModel
