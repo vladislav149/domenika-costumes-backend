@@ -5,7 +5,7 @@ const getAllRequisites = () => {
 }
 
 const getRequisite = id => {
-  return Requisites.findById(id).lean()
+  return Requisites.findById(id).lean().populate(['employee', 'place'])
 }
 
 const createRequisite = payload => {

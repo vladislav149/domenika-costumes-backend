@@ -18,8 +18,8 @@ app.use(
   }),
   express.json()
 )
-
-app.use(fileUpload({safeFileNames: true}))
+// {safeFileNames: true}
+app.use(fileUpload())
 app.use('/places', placesRoutes)
 app.use('/employees', employeesRoutes)
 app.use('/costumes', costumesRoutes)

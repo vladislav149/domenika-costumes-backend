@@ -1,15 +1,15 @@
 import Costumes from '../models/costumes.js'
 
 const getAllCostumes = () => {
-  return Costumes.find().lean()
+  return Costumes.find().lean().populate(['employee'])
 }
 
-const getCostumesByPlace = idPlace => {
-  return Costumes.find().lean()
-}
+// const getCostumesByPlace = idPlace => {
+//   return Costumes.find().lean()
+// }
 
 const getCostume = id => {
-  return Costumes.findById(id).lean()
+  return Costumes.findById(id).lean().populate(['employee', 'place'])
 }
 
 const createCostume = payload => {

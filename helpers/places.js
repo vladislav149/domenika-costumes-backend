@@ -9,7 +9,15 @@ const getPlace = id => {
 }
 
 const getCostumesByPlaceId = id => {
-  return Places.findById(id).lean().populate(['costumes'])
+  // return Places.findById(id).lean().populate('costumes')
+  return Places.findById(id)
+    .lean()
+    .populate({
+      path: 'costumes',
+      populate: {
+        path: 'employee'
+      }
+    })
 }
 
 const getRequisitesByPlaceId = id => {

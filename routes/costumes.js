@@ -17,13 +17,15 @@ const router = express.Router()
 router
   .post('/', async (req, res, next) => {
     try {
-      const {img} = req.files
-      const __filename = fileURLToPath(import.meta.url)
-      const __dirname = dirname(__filename)
-      const parentDir = join(__dirname, '..')
-      const randomNumber = Math.floor(Math.random() * 10000)
-      const uploadPath = `${parentDir}/uploads/${randomNumber}${img.name}`
-      img.mv(uploadPath)
+      if (req.files) {
+        const {img} = req.files
+        const __filename = fileURLToPath(import.meta.url)
+        const __dirname = dirname(__filename)
+        const parentDir = join(__dirname, '..')
+        const randomNumber = Math.floor(Math.random() * 10000)
+        const uploadPath = `${parentDir}/uploads/${randomNumber}${img.name}`
+        img.mv(uploadPath)
+      }
 
       const {body} = req
       const {employee, place} = body
